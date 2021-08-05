@@ -545,8 +545,8 @@ const Profile = () => {
                                             <td className="p-3">{user.user.firstName} {user.user.lastName}</td>
                                             <td className="p-3">{formatted_date.toString()}</td>
                                             <td className="p-3">{item.TotalPolicies}</td>
-                                            <td className="p-3">{item.TotalPayments}</td>
                                             <td className="p-3">{item.TotalRbns}</td>
+                                            <td className="p-3">{item.TotalPayments}</td>
                                         </tr>
                                     )
                                 }) : null
