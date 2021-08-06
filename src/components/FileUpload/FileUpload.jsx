@@ -1,7 +1,5 @@
 import React, {useEffect, useMemo, useState} from 'react'
-
-import Uploady, {UPLOADER_EVENTS, useUploady} from '@rpldy/uploady'
-import UploadButton from '@rpldy/upload-button'
+import Uploady, {UPLOADER_EVENTS} from '@rpldy/uploady'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { asUploadButton } from "@rpldy/upload-button";
 import tenor from '../../assets/tenor.gif';
