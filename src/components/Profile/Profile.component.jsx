@@ -522,7 +522,7 @@ const Profile = () => {
                         </div>
                     </div>
                     <div className="bg-white rounded-lg px-4 py-10 sm:px-12 lg:px-24 mt-9">
-                        <strong className="text-lg md:text-xl font-bold">Istoria încărcărilor:</strong>
+                        <strong className="text-lg md:text-xl font-bold">Istoria încărcărilor pe companie:</strong>
                         <table className="w-full text-left mt-9">
                             <thead>
                             <tr>
@@ -542,7 +542,7 @@ const Profile = () => {
                                     let formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds()
                                     return (
                                         <tr key={index}>
-                                            <td className="p-3">{user.user.firstName} {user.user.lastName}</td>
+                                            <td className="p-3">{item.concat}</td>
                                             <td className="p-3">{formatted_date.toString()}</td>
                                             <td className="p-3">{item.TotalPolicies}</td>
                                             <td className="p-3">{item.TotalRbns}</td>
