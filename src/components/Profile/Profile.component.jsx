@@ -531,6 +531,7 @@ const Profile = () => {
                                 <th className="py-2 px-3 bg-gray-100">Polițe</th>
                                 <th className="py-2 px-3 bg-gray-100">Rbns</th>
                                 <th className="py-2 px-3 bg-gray-100">Plăți</th>
+                                <th className="py-2 px-3 bg-gray-100">Fișier</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -547,6 +548,7 @@ const Profile = () => {
                                             <td className="p-3">{item.TotalPolicies}</td>
                                             <td className="p-3">{item.TotalRbns}</td>
                                             <td className="p-3">{item.TotalPayments}</td>
+                                            <td className="p-3">{item.FileName ? item.FileName : "-"}</td>     
                                         </tr>
                                     )
                                 }) : null
