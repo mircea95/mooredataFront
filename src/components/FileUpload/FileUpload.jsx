@@ -39,6 +39,25 @@ const FileUpload = (props) => {
         setCount((prevState) => ({ prev: prevState.prev + 10, next: prevState.next + 10 }))
     }
 
+    //check token
+    const parseJwt = (token) => {
+        try {
+          return JSON.parse(atob(token.split('.')[1]));
+        } catch (e) {
+          return null;
+        }
+    };
+
+    if (props.token) {
+        const decodedJwt = parseJwt(props.token);
+
+        if (decodedJwt.exp * 1000 < Date.now()) {
+            sessionStorage.clear();
+            window.location.href = '/';
+        }
+    }
+    //end check token
+
     const listeners = useMemo(() => ({
         [UPLOADER_EVENTS.ITEM_FINISH]: (item) => {
             setResponse(item.uploadResponse.data.data)

@@ -86,6 +86,25 @@ const Profile = () => {
     const [error, setError] = useState()
     const [errorNew, setErrorNew] = useState()
 
+    //check token
+    const parseJwt = (token) => {
+        try {
+          return JSON.parse(atob(token.split('.')[1]));
+        } catch (e) {
+          return null;
+        }
+    };
+
+    if (user.token) {
+        const decodedJwt = parseJwt(user.token);
+
+        if (decodedJwt.exp * 1000 < Date.now()) {
+            sessionStorage.clear();
+            window.location.href = '/';
+        }
+    }
+    //end check token
+
     const handleSelect = (e) => {
         if (!e.target.value.includes('Nume')) {
             setError('')

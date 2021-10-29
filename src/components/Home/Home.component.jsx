@@ -1,6 +1,4 @@
 import React from 'react'
-import Uploady from "@rpldy/uploady";
-import UploadDropZone from "@rpldy/upload-drop-zone";
 
 import useUser from "../App/useUser";
 
@@ -11,6 +9,22 @@ import FileUpload from "../FileUpload/FileUpload";
 const Home = () => {
     const {user, setUser} = useUser()
 
+    const parseJwt = (token) => {
+        try {
+          return JSON.parse(atob(token.split('.')[1]));
+        } catch (e) {
+          return null;
+        }
+    };
+
+    if (user.token) {
+        const decodedJwt = parseJwt(user.token);
+
+        if (decodedJwt.exp * 1000 < Date.now()) {
+            sessionStorage.clear();
+            window.location.href = '/';
+        }
+    }
     return (
         <>
 
